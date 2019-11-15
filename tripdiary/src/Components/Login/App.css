@@ -1,0 +1,41 @@
+.Login {
+  background-image: url("https://static.wixstatic.com/media/d6ba19_1fe913965fa64e4989aed0aedcb3026f.jpg/v1/fill/w_1372,h_728,al_c,q_85/d6ba19_1fe913965fa64e4989aed0aedcb3026f.webp");
+  height: 94.2vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 100px;
+}
+.card{
+  width: 380px;
+  height: 360px;
+  opacity: 1;
+}
+
+.form-control{
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.illustration {
+  text-align: center;
+  padding: 15px 0 20px;
+  font-size: 50px;
+  color: #2980ef;
+  
+}
+
+.nav-item{
+ margin-left: 1550px;
+ }
+
+.dropdown-menu{
+  width: 350px;
+}
+
+.dropdown-menu form {
+  padding:20px;
+}
+
+
+
