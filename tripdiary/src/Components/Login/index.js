@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './App.css';
 import ScriptTag from 'react-script-tag';
 import firebase from '../conexaodb.js'; 
-import { throwStatement } from '@babel/types';
 
 class Login extends Component { 
 
@@ -51,9 +50,16 @@ cadastrar(e){
       if(error.code === 'auth/invalid-email'){
         alert('Email inválido!');
       }
-      if(error.code === 'auth/weak-password'){
+     else if(error.code === 'auth/weak-password'){
           alert('Senha fraca!'); 
       }
+      else if(error.code === 'auth/email-already-in-use'){
+          alert('Email já cadastrado'); 
+      }
+      else{
+          alert(error.code);
+      }
+
       
     })
     e.preventDefault();
@@ -64,8 +70,8 @@ logar(e){
 
     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.senha)
     .then(()=>{
-        /*this.props.history.replace("/dashboard");*/
-        alert('logou');
+        this.props.history.replace("../feed");
+     /* alert('logou');*/
     })
     .catch((error) =>  {
       if(error.code === 'auth/wrong-password'){
