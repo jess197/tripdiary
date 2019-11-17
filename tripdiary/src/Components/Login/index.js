@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+import './login.css';
 import ScriptTag from 'react-script-tag';
 import firebase from '../conexaodb.js'; 
 
@@ -71,7 +71,6 @@ logar(e){
     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.senha)
     .then(()=>{
         this.props.history.replace("../feed");
-     /* alert('logou');*/
     })
     .catch((error) =>  {
       if(error.code === 'auth/wrong-password'){

@@ -15,9 +15,9 @@ import 'bootstrap/dist/js/bootstrap.js';
 ReactDOM.render(
     <BrowserRouter>
         <Switch>
-            <Route exact path="/" component={Login} />
-            <Route path="/feed" component={Feed} />
-            <Route path="/imageUpload" component={imageUpload} />
+            <Route exact path="/" component={Login}/>
+            <Route path="/feed" component={Feed}/>
+            <Route path="/imageUpload" component={imageUpload}/>
         </Switch>
     </BrowserRouter>, document.getElementById('root'));
 serviceWorker.unregister();
