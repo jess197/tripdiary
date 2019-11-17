@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import './App.css';
 import ScriptTag from 'react-script-tag';
-import firebase from './conexaodb.js'; 
+import firebase from '../conexaodb.js'; 
 import { throwStatement } from '@babel/types';
 
-class Login extends Component {
+class Login extends Component { 
 
   constructor(props) {
     super(props);
@@ -70,6 +70,9 @@ logar(e){
     .catch((error) =>  {
       if(error.code === 'auth/wrong-password'){
           alert('Senha Incorreta'); 
+      }
+      else if(error.code === 'auth/invalid-email'){
+        alert('Email inválido!');
       }
       else{
           alert(error.code);
