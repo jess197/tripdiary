@@ -9,38 +9,45 @@ class Login extends Component {
     super(props);
     this.state = {
       user: null, 
-      nome:"",
-      sobrenome:"",
-      email: "",
-      senha: "",
-      emailCadastro: "",
-      senhaCadastro: "",
-      loading:false 
+      nome:'',
+      sobrenome:'',
+      email: '',
+      senha: '',
+      emailCadastro: '',
+      senhaCadastro: '',
+      loading:false,
+      btnPressionado: ''
     };
      
   this.logar = this.logar.bind(this);
   this.cadastrar = this.cadastrar.bind(this); 
 
+  firebase.auth().signOut();
 
   firebase.auth().onAuthStateChanged((user) => {
-    if(user){
+    if(user && this.state.btnPressionado === 'cadastro'){
 
-      firebase.database().ref('usuarios').child(user.uid).set({
-        nome: this.state.nome,
-        sobrenome: this.state.sobrenome
-      });
-      
+        console.log('ENTREI AQUI NESSA BOST');
+        console.log(this.state.btnPressionado);
+        console.log(this.state.nome)
+        console.log(this.state.sobrenome)
 
-      this.setState({user:user});
-        firebase.database().ref('usuarios').child(user.uid).on('value', (snapshot) => {
-        this.setState({nome:snapshot.val().nome, sobrenome:snapshot.val().sobrenome})
-      });
+        firebase.database().ref('usuarios').child(user.uid).set({
+            nome: this.state.nome,
+            sobrenome: this.state.sobrenome
+        });
+        
+        this.setState({user:user});
+            firebase.database().ref('usuarios').child(user.uid).on('value', (snapshot) => {
+            this.setState({nome:snapshot.val().nome, sobrenome:snapshot.val().sobrenome})
+        });
     }
   });
 
 }
   
 cadastrar(e){
+    this.state.btnPressionado = 'cadastro';
 
     firebase.auth().createUserWithEmailAndPassword(this.state.emailCadastro, this.state.senhaCadastro)
     .then((success)=>{
@@ -67,6 +74,8 @@ cadastrar(e){
 
 
 logar(e){
+
+    this.state.btnPressionado = 'logar';
 
     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.senha)
     .then(()=>{
@@ -152,7 +161,7 @@ logar(e){
           </div>
       </nav>
       <div className="Login">
-          <div class="card bg-light">
+          <div class="card bg-light cardLogin">
               <form class="form">
                <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet"/>
                   <div class="illustration"><i class="icon ion-md-paper-plane"></i></div>

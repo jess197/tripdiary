@@ -1,0 +1,14 @@
+span.navbar-text{
+    width: 500px;
+}
+
+.botaoPerfil{
+    width: 100px;
+    margin-left: -200px;
+    margin-top: 0px;
+}
+
+.botaoSair{
+    width: 50px;
+    margin-left: -50px;
+}

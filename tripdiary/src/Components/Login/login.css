@@ -1,12 +1,12 @@
 .Login {
   background-image: url("https://static.wixstatic.com/media/d6ba19_1fe913965fa64e4989aed0aedcb3026f.jpg/v1/fill/w_1372,h_728,al_c,q_85/d6ba19_1fe913965fa64e4989aed0aedcb3026f.webp");
-  height: 94.2vh;
+  height: 94.3vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 100px;
 }
-.card{
+.cardLogin{
   width: 380px;
   height: 360px;
   opacity: 1;
