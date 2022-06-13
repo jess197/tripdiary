@@ -27,11 +27,6 @@ class Login extends Component {
   firebase.auth().onAuthStateChanged((user) => {
     if(user && this.state.btnPressionado === 'cadastro'){
 
-        console.log('ENTREI AQUI NESSA BOST');
-        console.log(this.state.btnPressionado);
-        console.log(this.state.nome)
-        console.log(this.state.sobrenome)
-
         firebase.database().ref('usuarios').child(user.uid).set({
             nome: this.state.nome,
             sobrenome: this.state.sobrenome
